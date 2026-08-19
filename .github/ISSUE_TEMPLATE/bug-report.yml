@@ -1,5 +1,5 @@
-name: Bug 反馈
-description: 反馈 Slimefun 4 使用中遇到的问题和 Bug
+name: Bug Report
+description: Report issues and bugs encountered while using Slimefun 4
 labels:
   - "🐞 Bug"
 
@@ -7,54 +7,54 @@ body:
   - type: markdown
     attributes:
       value: |
-        感谢你使用 Slimefun 问题反馈系统！
+        Thank you for using the Slimefun issue feedback system!
 
-        在反馈前, 请确认
-        - 你已经查看 [最新版本](https://github.com/SlimefunGuguProject/Slimefun4/releases) 是否已修复你所遇到的问题
-        - 你已经搜索了已有的 [问题](https://github.com/SlimefunGuguProject/Slimefun4/issues) 是否发现了相似的问题
-        
-        如果你的反馈含糊不清或不符合模板，将会被我们直接关闭。
+        Before reporting, please verify that:
+        - You have checked the [Latest Release](https://github.com/SlimefunGuguProject/Slimefun4/releases) to see if your issue has already been fixed.
+        - You have searched existing [Issues](https://github.com/SlimefunGuguProject/Slimefun4/issues) to check for similar reports.
+
+        If your report is vague or does not follow the template, it will be closed directly.
 
   - type: textarea
     id: issue-description
     attributes:
-      label: 问题描述
-      description: 在此详细描述你遇到的问题
+      label: Problem Description
+      description: Describe the issue you encountered in detail here
     validations:
       required: true
 
   - type: dropdown
     id: reproducibility
     attributes:
-       label: 问题复现率
-       description: 选择问题发生的概率
-       options:
-         - 无法复现
-         - 低偶发
-         - 高偶发
-         - 必现
+      label: Reproducibility Rate
+      description: Select the frequency of the issue occurring
+      options:
+        - Unable to reproduce
+        - Low occurrence
+        - High occurrence
+        - Always occurs
     validations:
       required: true
 
   - type: textarea
     id: reproduce
     attributes:
-      label: 复现步骤
-      description: 简略说明如何让我们复现这个问题
+      label: Steps to Reproduce
+      description: Briefly describe how we can reproduce this issue
       placeholder: |
-        简略说明如何让我们复现这个问题
-        可使用 1.  2.  3.  的列表格式，或其他任意恰当的格式
-        如果这个问题不容易复现, 请尽量描述发生当时的情景
+        Briefly describe how to reproduce this issue.
+        You may use a numbered list format (1. 2. 3.) or any other appropriate structure.
+        If the issue is hard to reproduce, please describe the context when it happened as accurately as possible.
     validations:
       required: true
 
   - type: dropdown
     id: server-platform-type
     attributes:
-      label: 服务端类型
+      label: Server Platform Type
       description: |
-        选择你正在使用的服务端，如 `Paper`
-        注意：汉化版仓库不对**混合端** (例如 Arclight、CatServer 这类支持插件与 Mod 并存的服务端) 做任何支持，请自己设法解决
+        Select the server core you are using, such as `Paper`.
+        Note: The localized repository does not offer support for **hybrid servers** (e.g., Arclight, CatServer, or other cores supporting both plugins and mods). Please resolve those independently.
       options:
         - Paper
         - Leaves
@@ -63,14 +63,14 @@ body:
         - Pufferfish
         - Leaf
         - Mirai
-        - 其他服务端 (请在 `问题描述` 处详细说明)
+        - Other server types (Please specify in "Problem Description")
     validations:
       required: true
 
   - type: dropdown
     id: minecraft-version
     attributes:
-      label: Minecraft 版本
+      label: Minecraft Version
       options:
         - 26.2.x
         - 26.1.x
@@ -96,22 +96,22 @@ body:
     validations:
       required: true
     attributes:
-      label: Slimefun 版本
+      label: Slimefun Version
       description: |
-        **不要填写 "最新版本"，否则你的反馈会被立即关闭**
-        请你截图或复制执行命令 "/sf versions" 后的输出内容。
+        **Do not fill in "latest version", otherwise your feedback will be closed immediately.**
+        Please provide a screenshot or copy the output of the `/sf versions` command.
       placeholder: Slimefun 2025.1
 
   - type: textarea
     id: other-plugin
     attributes:
-      label: 服务端插件列表
-      description: 提供你的服务器插件列表，你可以通过执行命令 /plugins 获取。
+      label: Server Plugin List
+      description: Provide your server's plugin list, which can be retrieved using the `/plugins` command.
       placeholder: |
-        插件: 版本
+        Plugin: Version
 
   - type: textarea
     id: additional
     attributes:
-      label: 补充信息
-      description: 如有必要，你可以在下文继续添加其他信息
+      label: Additional Information
+      description: Add any other relevant context or details here if necessary.

@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
 
 env:
-  TZ: 'Asia/Shanghai'
+  TZ: "Asia/Shanghai"
 
 jobs:
   build:
@@ -21,7 +21,7 @@ jobs:
         run: chmod +x gradlew
       - uses: actions/setup-java@v5
         with:
-          distribution: 'zulu'
+          distribution: "zulu"
           java-version: ${{ vars.JAVA_CI_VERSION || 21 }}
           java-package: jdk
           architecture: x64

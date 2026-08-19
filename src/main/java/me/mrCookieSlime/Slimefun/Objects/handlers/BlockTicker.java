@@ -28,7 +28,7 @@ public abstract class BlockTicker implements ItemHandler {
     }
 
     /**
-     * 刷新当前 ticker 执行状态
+     * Refreshes the execution status of the current ticker
      */
     public void update() {
         if (unique) {
