@@ -40,8 +40,8 @@ class DatabasePatchV3E2ETest {
         var expected = new ItemStack(Material.DIAMOND_SWORD);
         expected.addUnsafeEnchantment(Enchantment.SHARPNESS, 7);
         var meta = expected.getItemMeta();
-        meta.setDisplayName("迁移测试剑");
-        meta.setLore(List.of("来自旧版对象流", "保留物品元数据"));
+        meta.setDisplayName("Migration Test Sword");
+        meta.setLore(List.of("From legacy object stream", "Preserve item metadata"));
         expected.setItemMeta(meta);
         var legacyText = serializeLegacy(expected);
 
