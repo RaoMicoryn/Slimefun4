@@ -1,7 +1,10 @@
 backpack:
+  created: '&aBackpack created. UUID: &e%uuid%'
   set-name: '&ePlease type a name for your backpack in chat.'
   no-stack: '&cThe backpack cannot be stacked.'
+  not-backpack-owner: '&cYou are not the owner of this backpack.'
   not-original-item: '&cThe backpack was changed or moved.'
+  already-open: '&cThis backpack is already open.'
 
 commands:
   help: Displays this help screen

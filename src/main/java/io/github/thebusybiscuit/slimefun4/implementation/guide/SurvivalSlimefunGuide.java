@@ -70,13 +70,13 @@ public class SurvivalSlimefunGuide implements SlimefunGuideImplementation {
     private final ItemStack item;
 
     public SurvivalSlimefunGuide() {
-        item = new SlimefunGuideItem(this, "&aSlimefun 指南 &7(箱子界面)");
+        item = new SlimefunGuideItem(this, "&aSlimefun Guide &7(Chest Interface)");
     }
 
     // fallback
     @Deprecated
     public SurvivalSlimefunGuide(boolean v1, boolean v2) {
-        item = new SlimefunGuideItem(this, "&aSlimefun 指南 &7(箱子界面)");
+        item = new SlimefunGuideItem(this, "&aSlimefun Guide &7(Chest Interface)");
     }
 
     @Override
@@ -314,9 +314,9 @@ public class SurvivalSlimefunGuide implements SlimefunGuideImplementation {
             String lore;
 
             if (VaultIntegration.isEnabled()) {
-                lore = String.format("%.2f", research.getCurrencyCost()) + " 游戏币";
+                lore = String.format("%.2f", research.getCurrencyCost()) + " currency";
             } else {
-                lore = research.getLevelCost() + " 级经验";
+                lore = research.getLevelCost() + " experience levels";
             }
 
             menu.addItem(
@@ -327,9 +327,9 @@ public class SurvivalSlimefunGuide implements SlimefunGuideImplementation {
                             "&7" + sfitem.getId(),
                             "&4&l" + Slimefun.getLocalization().getMessage(p, "guide.locked"),
                             "",
-                            "&a> 单击解锁",
+                            "&a> Click to unlock",
                             "",
-                            "&7需要 &b",
+                            "&7Requires &b",
                             lore)));
             menu.addMenuClickHandler(index, (pl, slot, item, action) -> {
                 research.unlockFromGuide(this, p, profile, sfitem, itemGroup, page);
@@ -700,7 +700,8 @@ public class SurvivalSlimefunGuide implements SlimefunGuideImplementation {
         if (isSurvivalMode() && history.size() > 1) {
             menu.addItem(
                     slot,
-                    new CustomItemStack(ChestMenuUtils.getBackButton(p, "", "&f左键: &7返回上一页", "&fShift + 左键: &7返回主菜单")));
+                    new CustomItemStack(ChestMenuUtils.getBackButton(
+                            p, "", "&fLeft Click: &7Previous page", "&fShift + Left Click: &7Main menu")));
 
             menu.addMenuClickHandler(slot, (pl, s, is, action) -> {
                 if (action.isShiftClicked()) {
@@ -733,8 +734,8 @@ public class SurvivalSlimefunGuide implements SlimefunGuideImplementation {
             }
 
             String lore = hasPermission(p, slimefunItem)
-                    ? "&f需要在 " + slimefunItem.getItemGroup().getDisplayName(p) + " 中解锁"
-                    : "&f无权限";
+                    ? "&fRequires unlocking in " + slimefunItem.getItemGroup().getDisplayName(p)
+                    : "&fNo permission";
             return slimefunItem.canUse(p, false)
                     ? item
                     : new CustomItemStack(
@@ -846,8 +847,8 @@ public class SurvivalSlimefunGuide implements SlimefunGuideImplementation {
 
     @ParametersAreNonnullByDefault
     private void printErrorMessage(Player p, Throwable x) {
-        p.sendMessage(ChatColor.DARK_RED + "服务器发生了一个内部错误. 请联系管理员处理.");
-        Slimefun.logger().log(Level.SEVERE, "在打开指南书里的 Slimefun 物品时发生了意外!", x);
+        p.sendMessage(ChatColor.DARK_RED + "An internal server error occurred. Contact an administrator.");
+        Slimefun.logger().log(Level.SEVERE, "An error occurred while opening a Slimefun item in the guide!", x);
     }
 
     @ParametersAreNonnullByDefault

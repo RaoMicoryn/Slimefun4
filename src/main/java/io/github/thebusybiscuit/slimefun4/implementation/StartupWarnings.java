@@ -23,21 +23,21 @@ final class StartupWarnings {
     @ParametersAreNonnullByDefault
     static void discourageCSCoreLib(Logger logger) {
         logger.log(Level.SEVERE, BORDER);
-        logger.log(Level.SEVERE, PREFIX + "你好像安装了 CS-CoreLib。");
+        logger.log(Level.SEVERE, PREFIX + "CS-CoreLib appears to be installed.");
         logger.log(Level.SEVERE, PREFIX);
-        logger.log(Level.SEVERE, PREFIX + "自 2021/01/30 起就不再强制依赖 CS-CoreLib 了");
-        logger.log(Level.SEVERE, PREFIX + "你需要卸载 CS-CoreLib 才能让 Slimefun 正常运行。");
+        logger.log(Level.SEVERE, PREFIX + "CS-CoreLib has not been required since 2021/01/30.");
+        logger.log(Level.SEVERE, PREFIX + "Uninstall CS-CoreLib for Slimefun to run correctly.");
         logger.log(Level.SEVERE, BORDER);
     }
 
     @ParametersAreNonnullByDefault
     static void invalidMinecraftVersion(Logger logger, String detectedVer, String slimefunVersion) {
         logger.log(Level.SEVERE, BORDER);
-        logger.log(Level.SEVERE, PREFIX + "Slimefun 加载失败!");
-        logger.log(Level.SEVERE, PREFIX + "你正在使用不支持的 Minecraft 版本!");
+        logger.log(Level.SEVERE, PREFIX + "Slimefun failed to load!");
+        logger.log(Level.SEVERE, PREFIX + "You are using an unsupported Minecraft version!");
         logger.log(Level.SEVERE, PREFIX);
-        logger.log(Level.SEVERE, PREFIX + "你正在使用 Minecraft {0}", detectedVer);
-        logger.log(Level.SEVERE, PREFIX + "但 Slimefun {0} 只支持以下版本:", slimefunVersion);
+        logger.log(Level.SEVERE, PREFIX + "You are using Minecraft {0}", detectedVer);
+        logger.log(Level.SEVERE, PREFIX + "Slimefun {0} only supports the following versions:", slimefunVersion);
         logger.log(Level.SEVERE, PREFIX + "Minecraft {0}", String.join(" / ", Slimefun.getSupportedVersions()));
         logger.log(Level.SEVERE, BORDER);
     }
@@ -45,11 +45,11 @@ final class StartupWarnings {
     @ParametersAreNonnullByDefault
     static void invalidServerSoftware(Logger logger) {
         logger.log(Level.SEVERE, BORDER);
-        logger.log(Level.SEVERE, PREFIX + "Slimefun 加载失败!");
-        logger.log(Level.SEVERE, PREFIX + "我们不再支持 CraftBukkit 服务端了!");
+        logger.log(Level.SEVERE, PREFIX + "Slimefun failed to load!");
+        logger.log(Level.SEVERE, PREFIX + "CraftBukkit servers are no longer supported!");
         logger.log(Level.SEVERE, PREFIX);
-        logger.log(Level.SEVERE, PREFIX + "你需要使用 Paper 或其分支的服务端");
-        logger.log(Level.SEVERE, PREFIX + "(我们推荐 Paper)");
+        logger.log(Level.SEVERE, PREFIX + "Use Paper or one of its forks");
+        logger.log(Level.SEVERE, PREFIX + "(Paper is recommended)");
         logger.log(Level.SEVERE, BORDER);
     }
 
@@ -58,13 +58,16 @@ final class StartupWarnings {
         int javaVersion = NumberUtils.getJavaVersion();
 
         logger.log(Level.WARNING, BORDER);
-        logger.log(Level.WARNING, PREFIX + "正在使用的 Java 版本 (Java {0}) 已过时.", javaVersion);
+        logger.log(Level.WARNING, PREFIX + "The Java version in use (Java {0}) is outdated.", javaVersion);
         logger.log(Level.WARNING, PREFIX);
-        logger.log(Level.WARNING, PREFIX + "由于高版本 Minecraft 对 Java {0} 的强制依赖,", recommendedJavaVersion);
-        logger.log(Level.WARNING, PREFIX + "我们推荐您尽快升级到 Java {0}.", recommendedJavaVersion);
-        logger.log(Level.WARNING, PREFIX + "同时，为尽快使用到新版本 Java 带来的特性,");
-        logger.log(Level.WARNING, PREFIX + "Slimefun 也会在不久的将来依赖于 Java {0}.", recommendedJavaVersion);
-        logger.log(Level.WARNING, PREFIX + "为了不影响您以后的正常使用，请尽快更新!");
+        logger.log(Level.WARNING, PREFIX + "Newer Minecraft versions require Java {0}.", recommendedJavaVersion);
+        logger.log(Level.WARNING, PREFIX + "We recommend upgrading to Java {0} soon.", recommendedJavaVersion);
+        logger.log(Level.WARNING, PREFIX + "To use features from newer Java versions,");
+        logger.log(
+                Level.WARNING,
+                PREFIX + "Slimefun will also require Java {0} in the near future.",
+                recommendedJavaVersion);
+        logger.log(Level.WARNING, PREFIX + "Please update soon to avoid future issues!");
         logger.log(Level.WARNING, BORDER);
     }
 }

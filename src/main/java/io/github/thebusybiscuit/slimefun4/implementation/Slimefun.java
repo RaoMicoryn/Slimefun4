@@ -264,10 +264,10 @@ public final class Slimefun extends JavaPlugin implements SlimefunAddon, ICompat
         } else if (!PaperLib.isPaper()) {
             getLogger().log(Level.WARNING, "#######################################################");
             getLogger().log(Level.WARNING, "");
-            getLogger().log(Level.WARNING, "自 24/12/22 起 Slimefun 汉化版");
-            getLogger().log(Level.WARNING, "转为 Paper 插件, 你必须要使用 Paper");
-            getLogger().log(Level.WARNING, "或其分支才可使用 Slimefun.");
-            getLogger().log(Level.WARNING, "立即下载 Paper: https://papermc.io/downloads/paper");
+            getLogger().log(Level.WARNING, "Since 2024-12-22, Slimefun requires Paper.");
+            getLogger().log(Level.WARNING, "You must use Paper");
+            getLogger().log(Level.WARNING, "or one of its forks to use Slimefun.");
+            getLogger().log(Level.WARNING, "Download Paper: https://papermc.io/downloads/paper");
             getLogger().log(Level.WARNING, "");
             getLogger().log(Level.WARNING, "#######################################################");
             getServer().getPluginManager().disablePlugin(this);
@@ -326,12 +326,12 @@ public final class Slimefun extends JavaPlugin implements SlimefunAddon, ICompat
                 || BlockStorageMigrator.getInstance().hasOldData()) {
             Slimefun.logger().warning("====================================================");
             Slimefun.logger().warning("\n");
-            Slimefun.logger().log(Level.WARNING, "!!! 检测到使用文件储存的旧玩家数据 !!!");
-            Slimefun.logger().warning("请在服务器加载完成后, 使用 /sf migrate confirm 进行迁移!");
-            Slimefun.logger().warning("如果不迁移, 旧版本的数据将会失效!!!");
+            Slimefun.logger().log(Level.WARNING, "!!! Legacy file-based player data detected !!!");
+            Slimefun.logger().warning("After the server finishes loading, use /sf migrate confirm to migrate it!");
+            Slimefun.logger().warning("Without migration, data from the old version will become unusable!!!");
             Slimefun.logger().warning("\n");
-            Slimefun.logger().warning("需要使用数据库的用户, 请关服后在以下配置文件中配置数据库:");
-            Slimefun.logger().warning("block-storage.yml 和 profile-storage.yml");
+            Slimefun.logger().warning("To use a database, stop the server and configure it in these files:");
+            Slimefun.logger().warning("block-storage.yml and profile-storage.yml");
             Slimefun.logger().warning("\n");
             Slimefun.logger().warning("====================================================");
         }
@@ -349,7 +349,10 @@ public final class Slimefun extends JavaPlugin implements SlimefunAddon, ICompat
 
         // Make sure that the network size is a valid input
         if (networkSize < 1) {
-            logger.log(Level.WARNING, "'networks.max-size' 大小设置错误! 它必须大于1, 而你设置的是: {0}", networkSize);
+            logger.log(
+                    Level.WARNING,
+                    "'networks.max-size' is invalid! It must be greater than 1, but was set to: {0}",
+                    networkSize);
             networkSize = 1;
         }
 
@@ -598,7 +601,7 @@ public final class Slimefun extends JavaPlugin implements SlimefunAddon, ICompat
                 getLogger()
                         .log(
                                 Level.WARNING,
-                                "We could not recognize the Minecraft version you are using 版本 ({0})",
+                                "We could not recognize the Minecraft version you are using ({0})",
                                 getServer().getMinecraftVersion());
                 return false;
             }

@@ -1,5 +1,6 @@
 package io.github.thebusybiscuit.slimefun4.implementation.listeners;
 
+import io.github.bakedlibs.dough.common.ChatColors;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
 import io.github.thebusybiscuit.slimefun4.api.player.PlayerBackpack;
 import io.github.thebusybiscuit.slimefun4.api.player.PlayerProfile;
@@ -11,14 +12,12 @@ import io.github.thebusybiscuit.slimefun4.utils.ThreadUtils;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
-import java.util.Objects;
 import java.util.Set;
 import java.util.UUID;
 import java.util.logging.Level;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
-import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.SoundCategory;
 import org.bukkit.entity.Player;
@@ -210,37 +209,12 @@ public class BackpackListener implements Listener {
         if (PlayerBackpack.getBackpackUUID(meta).isEmpty()
                 && PlayerBackpack.getBackpackID(meta).isEmpty()) {
             // Create backpack
-            Slimefun.getLocalization().sendMessage(p, "backpack.set-name", true);
-            UUID puuid = p.getUniqueId();
-            ItemStack itemCopy = item.clone();
-            Slimefun.getChatCatcher().scheduleCatcher(puuid, name -> {
-                Player player = Bukkit.getPlayer(puuid);
-                // Don't let player quit server during the input
-                if (player == null) return;
-                var pInv = player.getInventory();
-                // Check if the player change the amount of item
-                if (item.getAmount() != 1) {
-                    Slimefun.getLocalization().sendMessage(player, "backpack.no-stack", true);
-                    return;
-                }
-                // Check if the item is modified during the chat input
-                if (!Objects.equals(itemCopy, item)) {
-                    Slimefun.getLocalization().sendMessage(player, "backpack.not-original-item", true);
-                    return;
-                }
-                // Check if the player moves the item
-                if (!item.equals(pInv.getItemInMainHand()) && !item.equals(pInv.getItemInOffHand())) {
-                    Slimefun.getLocalization().sendMessage(player, "backpack.not-original-item", true);
-                    return;
-                }
-                // Create the backpack, and bind
-                PlayerProfile.get(player, profile -> {
-                    PlayerBackpack.bindItem(
-                            item,
-                            Slimefun.getDatabaseManager()
-                                    .getProfileDataController()
-                                    .createBackpack(player, name, profile.nextBackpackNum(), backpackItem.getSize()));
-                });
+            PlayerProfile.get(p, profile -> {
+                PlayerBackpack backpack = Slimefun.getDatabaseManager()
+                        .getProfileDataController()
+                        .createBackpack(p, "", profile.nextBackpackNum(), backpackItem.getSize());
+                PlayerBackpack.bindItem(item, backpack);
+                p.sendMessage(ChatColors.color("&aBackpack created. UUID: &e" + backpack.getUniqueId()));
             });
             return;
         }

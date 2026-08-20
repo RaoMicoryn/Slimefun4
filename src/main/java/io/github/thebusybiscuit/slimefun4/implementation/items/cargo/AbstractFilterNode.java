@@ -90,7 +90,12 @@ abstract class AbstractFilterNode extends AbstractCargoNode {
 
         preset.addItem(
                 2,
-                new CustomItemStack(Material.PAPER, "&3物品", "", "&b将你想要添加到黑白名单", "&b的物品放入此处"),
+                new CustomItemStack(
+                        Material.PAPER,
+                        "&3Item",
+                        "",
+                        "&bPlace an item here to add it",
+                        "&bto the whitelist or blacklist"),
                 ChestMenuUtils.getEmptyClickHandler());
     }
 
@@ -101,14 +106,20 @@ abstract class AbstractFilterNode extends AbstractCargoNode {
         String filterType = blockData.getData(FILTER_TYPE);
 
         if (filterType == null || filterType.equals("whitelist")) {
-            menu.replaceExistingItem(15, new CustomItemStack(Material.WHITE_WOOL, "&7模式: &r白名单", "", "&e> 单击切换至黑名单"));
+            menu.replaceExistingItem(
+                    15,
+                    new CustomItemStack(
+                            Material.WHITE_WOOL, "&7Mode: &rWhitelist", "", "&e> Click to switch to blacklist"));
             menu.addMenuClickHandler(15, (p, slot, item, action) -> {
                 StorageCacheUtils.setData(b.getLocation(), FILTER_TYPE, "blacklist");
                 updateBlockMenu(menu, b);
                 return false;
             });
         } else {
-            menu.replaceExistingItem(15, new CustomItemStack(Material.BLACK_WOOL, "&7模式: &8黑名单", "", "&e> 单击切换至白名单"));
+            menu.replaceExistingItem(
+                    15,
+                    new CustomItemStack(
+                            Material.BLACK_WOOL, "&7Mode: &8Blacklist", "", "&e> Click to switch to whitelist"));
             menu.addMenuClickHandler(15, (p, slot, item, action) -> {
                 StorageCacheUtils.setData(b.getLocation(), FILTER_TYPE, "whitelist");
                 updateBlockMenu(menu, b);
@@ -120,7 +131,12 @@ abstract class AbstractFilterNode extends AbstractCargoNode {
 
         if (lore == null || lore.equals(String.valueOf(true))) {
             menu.replaceExistingItem(
-                    25, new CustomItemStack(Material.MAP, "&7匹配在物品名称底下的文字: &2\u2714", "", "&e> 单击启用匹配文字"));
+                    25,
+                    new CustomItemStack(
+                            Material.MAP,
+                            "&7Match text below item name: &2\u2714",
+                            "",
+                            "&e> Click to enable text matching"));
             menu.addMenuClickHandler(25, (p, slot, item, action) -> {
                 StorageCacheUtils.setData(b.getLocation(), FILTER_LORE, String.valueOf(false));
                 updateBlockMenu(menu, b);
@@ -128,7 +144,12 @@ abstract class AbstractFilterNode extends AbstractCargoNode {
             });
         } else {
             menu.replaceExistingItem(
-                    25, new CustomItemStack(Material.MAP, "&7匹配在物品名称底下的文字: &4\u2718", "", "&e> 单击关闭匹配文字"));
+                    25,
+                    new CustomItemStack(
+                            Material.MAP,
+                            "&7Match text below item name: &4\u2718",
+                            "",
+                            "&e> Click to disable text matching"));
             menu.addMenuClickHandler(25, (p, slot, item, action) -> {
                 StorageCacheUtils.setData(b.getLocation(), FILTER_LORE, String.valueOf(true));
                 updateBlockMenu(menu, b);
