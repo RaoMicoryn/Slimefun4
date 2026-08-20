@@ -41,7 +41,7 @@ import org.bukkit.persistence.PersistentDataType;
  * @see BackpackListener
  */
 public class PlayerBackpack extends SlimefunInventoryHolder {
-    public static final String LORE_OWNER = "&7所有者: ";
+    public static final String LORE_OWNER = "&7Owner: ";
     private static final String COLORED_LORE_OWNER = ChatColors.color(LORE_OWNER);
     private static final NamespacedKey KEY_BACKPACK_UUID = new NamespacedKey(Slimefun.instance(), "B_UUID");
     private static final NamespacedKey KEY_OWNER_UUID = new NamespacedKey(Slimefun.instance(), "OWNER_UUID");

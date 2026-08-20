@@ -1643,19 +1643,19 @@ public final class SlimefunItems {
 
     // FIX: name was already translated, but lore was still Chinese
     public static final SlimefunItemStack TALISMAN_ANVIL = new SlimefunItemStack(
-        "ANVIL_TALISMAN",
-        Material.EMERALD,
-        "&aAnvil Talisman",
-        "",
-        "&fEach Talisman can prevent",
-        "&f1 Tool from breaking, but will then",
-        "&fbe consumed",
-        "",
-        "&4&lWARNING:",
-        "&4This Talisman does not work on",
-        "&4Tools which are too powerful",
-        "&4due to their complexity");
-        
+            "ANVIL_TALISMAN",
+            Material.EMERALD,
+            "&aAnvil Talisman",
+            "",
+            "&fEach Talisman can prevent",
+            "&f1 Tool from breaking, but will then",
+            "&fbe consumed",
+            "",
+            "&4&lWARNING:",
+            "&4This Talisman does not work on",
+            "&4Tools which are too powerful",
+            "&4due to their complexity");
+
     public static final SlimefunItemStack TALISMAN_MINER = new SlimefunItemStack(
             "MINER_TALISMAN",
             Material.EMERALD,

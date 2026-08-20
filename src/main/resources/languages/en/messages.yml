@@ -1,3 +1,8 @@
+backpack:
+  set-name: '&ePlease type a name for your backpack in chat.'
+  no-stack: '&cThe backpack cannot be stacked.'
+  not-original-item: '&cThe backpack was changed or moved.'
+
 commands:
   help: Displays this help screen
   cheat: Allows you to cheat Items
