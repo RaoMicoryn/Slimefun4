@@ -117,7 +117,13 @@ public final class SlimefunItems {
             "",
             "&9+ Night Vision");
     public static final SlimefunItemStack ELYTRA_CAP = new SlimefunItemStack(
-        "ELYTRA_CAP", Material.LEATHER_HELMET, Color.PURPLE, "&5Elytra Cap", "", "&7Prevents you from splatting", "&7while flying with an Elytra");
+            "ELYTRA_CAP",
+            Material.LEATHER_HELMET,
+            Color.PURPLE,
+            "&5Elytra Cap",
+            "",
+            "&7Prevents you from splatting",
+            "&7while flying with an Elytra");
     public static final SlimefunItemStack FARMER_SHOES = new SlimefunItemStack(
             "FARMER_SHOES",
             Material.LEATHER_BOOTS,
@@ -1631,11 +1637,25 @@ public final class SlimefunItems {
 
     /* ===================== Talismans ===================== */
     public static final SlimefunItemStack COMMON_TALISMAN =
-        new SlimefunItemStack("COMMON_TALISMAN", Material.EMERALD, "&6Common Talisman");
+            new SlimefunItemStack("COMMON_TALISMAN", Material.EMERALD, "&6Common Talisman");
     public static final SlimefunItemStack ENDER_TALISMAN =
-        new SlimefunItemStack("ENDER_TALISMAN", Material.EMERALD, "&5Ender Talisman");
+            new SlimefunItemStack("ENDER_TALISMAN", Material.EMERALD, "&5Ender Talisman");
 
     // FIX: name was already translated, but lore was still Chinese
+    public static final SlimefunItemStack TALISMAN_ANVIL = new SlimefunItemStack(
+        "ANVIL_TALISMAN",
+        Material.EMERALD,
+        "&aAnvil Talisman",
+        "",
+        "&fEach Talisman can prevent",
+        "&f1 Tool from breaking, but will then",
+        "&fbe consumed",
+        "",
+        "&4&lWARNING:",
+        "&4This Talisman does not work on",
+        "&4Tools which are too powerful",
+        "&4due to their complexity");
+        
     public static final SlimefunItemStack TALISMAN_MINER = new SlimefunItemStack(
             "MINER_TALISMAN",
             Material.EMERALD,
