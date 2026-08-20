@@ -1630,6 +1630,10 @@ public final class SlimefunItems {
             LoreBuilder.HAZMAT_SUIT_REQUIRED);
 
     /* ===================== Talismans ===================== */
+    public static final SlimefunItemStack COMMON_TALISMAN =
+        new SlimefunItemStack("COMMON_TALISMAN", Material.EMERALD, "&6Common Talisman");
+    public static final SlimefunItemStack ENDER_TALISMAN =
+        new SlimefunItemStack("ENDER_TALISMAN", Material.EMERALD, "&5Ender Talisman");
 
     // FIX: name was already translated, but lore was still Chinese
     public static final SlimefunItemStack TALISMAN_MINER = new SlimefunItemStack(
